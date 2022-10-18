@@ -14,6 +14,7 @@ public interface VoteRepository extends JpaRepository<Vote, Long> {
 
     Optional<Vote> findVoteByVoter_IdAndCandidate_Id(Long voterId, Long candidateId);
 
+
 //    Get total number of votes per candidate
     @Query(value ="SELECT COUNT(*) AS 'Total votes'\n" +
             "FROM vote v \n" +
