@@ -25,11 +25,21 @@ public class GlobalExceptionHandling implements ErrorController {
         return createHttpResponse(BAD_REQUEST, exception.getMessage());
     }
 
+    @ExceptionHandler(UnderAgeException.class)
+    public ResponseEntity<HttpResponse> underAgeException(UnderAgeException exception) {
+        return createHttpResponse(BAD_REQUEST, exception.getMessage());
+    }
+
+
     @ExceptionHandler(NotFoundException.class)
     public ResponseEntity<HttpResponse> notFoundException(NotFoundException exception) {
         return createHttpResponse(BAD_REQUEST, exception.getMessage());
     }
 
+    @ExceptionHandler(NotAllowedException.class)
+    public ResponseEntity<HttpResponse> notAllowedException(NotAllowedException exception) {
+        return createHttpResponse(BAD_REQUEST, exception.getMessage());
+    }
 
     @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
     public ResponseEntity<HttpResponse> methodNotSupportedException(HttpRequestMethodNotSupportedException exception) {

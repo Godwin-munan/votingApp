@@ -7,4 +7,6 @@ import java.util.Optional;
 
 public interface CandidateRepository extends JpaRepository<Candidate, Long> {
     Optional<Candidate> findCandidateByName(String name);
+
+    Optional<Candidate> findCandidateByParty_InitialsAndPosition_Type(String party, String position);
 }

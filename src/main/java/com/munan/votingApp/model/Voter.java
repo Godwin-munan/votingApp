@@ -1,5 +1,6 @@
 package com.munan.votingApp.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,6 +11,7 @@ import java.io.Serializable;
 @Entity
 @Table(name="voter")
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 public class Voter implements Serializable {
@@ -21,7 +23,9 @@ public class Voter implements Serializable {
     private String name;
     private String username;
     private Integer age;
-    private String gender;
+
+    @ManyToOne
+    private Gender gender;
 
 
 }

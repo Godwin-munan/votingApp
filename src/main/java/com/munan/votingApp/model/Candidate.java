@@ -20,7 +20,11 @@ public class Candidate implements  Serializable {
 
     private String name;
     private Integer age;
-    private String position;
     private String healthStatus;
-    private String party;
+
+    @ManyToOne
+    private Position position;
+
+    @ManyToOne
+    private Party party;
 }

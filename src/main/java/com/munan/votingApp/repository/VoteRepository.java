@@ -23,4 +23,13 @@ public interface VoteRepository extends JpaRepository<Vote, Long> {
     Integer findCandidateVotes(String name);
 
  List<Vote> findVoteByCandidate_Name(String name);
+
+ @Query(value = "SELECT candidate_id\n" +
+         "FROM vote\n" +
+         "GROUP BY candidate_id\n" +
+         "ORDER BY COUNT(*) DESC\n" +
+         "LIMIT 1", nativeQuery = true)
+ Long findWinner();
+
+ Optional<Vote> findVoteByVoter_IdAndCandidate_Position_Id(Long voterId, Long positionId);
 }
